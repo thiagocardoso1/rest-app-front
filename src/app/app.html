@@ -35,11 +35,22 @@
                             <p-sidebar-menu>
                                 <p-sidebar-menu-item>
                                     <button
+                                        routerLink="/"
                                         pSidebarMenuButton
                                         [isActive]="true"
                                     >
                                         <svg data-p-icon="home"></svg>
                                         <span>Home</span>
+                                    </button>
+                                </p-sidebar-menu-item>
+                                <p-sidebar-menu-item>
+                                    <button
+                                        routerLink="/create-post"
+                                        pSidebarMenuButton
+                                        [isActive]="false"
+                                    >
+                                        <svg data-p-icon="plus"></svg>
+                                        <span>New Post</span>
                                     </button>
                                 </p-sidebar-menu-item>
                             </p-sidebar-menu>
@@ -79,29 +90,6 @@
             </button>
             <span class="text-sm font-medium">Message Node</span>
         </header>
-        <div class="flex-1 p-4 flex flex-col gap-4">
-            <div class="rounded-lg bg-surface-100 dark:bg-surface-800 h-48">
-                <div class="flex justify-center">
-                    <div class="flex flex-col">
-                        <label pLabel class="mb-2">Status</label>
-                        <p-autocomplete
-                            [(ngModel)]="value"
-                            [suggestions]="filteredItems"
-                            (completeMethod)="search($event)"
-                            placeholder="Search..."
-                            inputStyleClass="w-full md:w-72"
-                            scrollHeight="14rem"
-                        />
-                        <button pButton class="mt-4">
-                            <svg data-p-icon="refresh"></svg> Update
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="rounded-lg bg-surface-100 dark:bg-surface-800 flex-1"
-            ></div>
-        </div>
+        <router-outlet></router-outlet>
     </p-sidebar-main>
 </p-sidebar-layout>
-<router-outlet />
